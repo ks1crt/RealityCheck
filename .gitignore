@@ -8,6 +8,10 @@
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
+/[Aa]ssets/Plugins
+/[Aa]ssets/ExampleAssets
+/[Aa]ssets/ExampleAssets.meta
+/[Aa]ssets/TutorialInfo
 /[Mm]emoryCaptures/
 
 # Never ignore Asset meta data
@@ -61,3 +65,11 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+
+Assets/Scenes/SampleScene.unity
+
+Assets/Scenes/SampleScene.unity.meta
+
+Assets/Scenes/SampleSceneLightingSettings.lighting.meta
+
+Assets/Scenes/SampleSceneLightingSettings.lighting
