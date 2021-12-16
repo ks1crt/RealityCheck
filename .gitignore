@@ -12,6 +12,9 @@
 /[Aa]ssets/ExampleAssets
 /[Aa]ssets/ExampleAssets.meta
 /[Aa]ssets/TutorialInfo
+/[Aa]ssets/PolygonApocalypse
+/[Aa]ssets/PolygonOffice
+/[Aa]ssets/PolygonSciFiCity
 /[Mm]emoryCaptures/
 
 # Never ignore Asset meta data
@@ -73,3 +76,9 @@ Assets/Scenes/SampleScene.unity.meta
 Assets/Scenes/SampleSceneLightingSettings.lighting.meta
 
 Assets/Scenes/SampleSceneLightingSettings.lighting
+
+Assets/PolygonApocalypse.meta
+
+Assets/PolygonOffice.meta
+
+Assets/PolygonSciFiCity.meta
