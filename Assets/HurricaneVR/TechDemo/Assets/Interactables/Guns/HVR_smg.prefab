@@ -191,6 +191,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -215,6 +216,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &5276702846429431431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,12 +295,6 @@ MonoBehaviour:
     ButtonParameter: 0
     Button: 0
     Disabled: 0
-    Test:
-      Type: 0
-      Vive: 0
-      Oculus: 0
-      Knuckles: 0
-      WMR: 0
     ThumbType: 0
     IndexType: 0
     MiddleType: 0
@@ -417,12 +413,6 @@ MonoBehaviour:
     ButtonParameter: 0
     Button: 0
     Disabled: 0
-    Test:
-      Type: 0
-      Vive: 0
-      Oculus: 0
-      Knuckles: 0
-      WMR: 0
     ThumbType: 0
     IndexType: 0
     MiddleType: 0
@@ -443,12 +433,6 @@ MonoBehaviour:
     ButtonParameter: 1
     Button: 1
     Disabled: 0
-    Test:
-      Type: 0
-      Vive: 0
-      Oculus: 0
-      Knuckles: 0
-      WMR: 0
     ThumbType: 1
     IndexType: 0
     MiddleType: 1
@@ -565,12 +549,6 @@ MonoBehaviour:
     ButtonParameter: 0
     Button: 0
     Disabled: 0
-    Test:
-      Type: 0
-      Vive: 0
-      Oculus: 0
-      Knuckles: 0
-      WMR: 0
     ThumbType: 0
     IndexType: 0
     MiddleType: 0
@@ -694,8 +672,7 @@ MonoBehaviour:
   ForcePullOverride: {fileID: 0}
   JointOverride: {fileID: 0}
   OneHandJointSettings: {fileID: 0}
-  TwoHandJointSettings: {fileID: 11400000, guid: 984d36eac3c1854408dbc8f5493acd6d,
-    type: 2}
+  TwoHandJointSettings: {fileID: 11400000, guid: 984d36eac3c1854408dbc8f5493acd6d, type: 2}
   PullingSettingsOverride: {fileID: 0}
   PalmCenterOfMass: 0
   HandGrabbedClip: {fileID: 0}
@@ -912,6 +889,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -936,6 +914,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &5276702847038870961
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1228,6 +1207,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1252,6 +1232,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &5276702847305036239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1319,6 +1300,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1343,6 +1325,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &5276702847390469226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,8 +1462,7 @@ MonoBehaviour:
   ScaleGrabbable: 0
   Size: 0
   CanGrabStabbingGrabbable: 0
-  AudioGrabbedOverride: {fileID: 8300000, guid: 0736054a8e9ce2747aebdddc920b497b,
-    type: 3}
+  AudioGrabbedOverride: {fileID: 8300000, guid: 0736054a8e9ce2747aebdddc920b497b, type: 3}
   AudioReleasedOverride: {fileID: 0}
   AudioGrabbedFallback: {fileID: 0}
   AudioReleasedFallback: {fileID: 0}
@@ -1617,6 +1599,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1641,6 +1624,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &5276702847701867703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2018,8 +2002,7 @@ MonoBehaviour:
   FireParameter: Fire
   MaxPooledBullets: 100
   SlowMotionBulletOnly: 0
-  BulletPrefab: {fileID: 7570415639619388451, guid: 416e18e376860fc499add1ebea2501b4,
-    type: 3}
+  BulletPrefab: {fileID: 7570415639619388451, guid: 416e18e376860fc499add1ebea2501b4, type: 3}
   BulletLife: 5
   Fired:
     m_PersistentCalls:
@@ -2173,6 +2156,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2197,6 +2181,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &5276702847902982229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2279,12 +2264,6 @@ MonoBehaviour:
     ButtonParameter: 0
     Button: 0
     Disabled: 0
-    Test:
-      Type: 0
-      Vive: 0
-      Oculus: 0
-      Knuckles: 0
-      WMR: 0
     ThumbType: 0
     IndexType: 0
     MiddleType: 0
@@ -2458,6 +2437,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2482,6 +2462,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &5276702848074213982
 MonoBehaviour:
   m_ObjectHideFlags: 0
