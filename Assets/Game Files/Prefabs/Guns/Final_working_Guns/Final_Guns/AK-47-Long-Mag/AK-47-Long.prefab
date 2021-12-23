@@ -93,7 +93,7 @@ MonoBehaviour:
   MinAngularVelocity: {x: 0, y: 8, z: 0}
   MaxAngularVelocity: {x: 0, y: 10, z: 0}
   Gun: {fileID: 0}
-  Prefab: {fileID: 4649205176237081539, guid: 0511ada719630fb4da62a2cf568956c1, type: 3}
+  Prefab: {fileID: 6012183619269526068, guid: b6031c27c9bcb6d479739ec932dc8fa9, type: 3}
   MinLife: 5
   MaxLife: 10
   MaxObjects: 30
@@ -1472,7 +1472,7 @@ MonoBehaviour:
   MinAngularVelocity: {x: 0, y: 8, z: 0}
   MaxAngularVelocity: {x: 0, y: 10, z: 0}
   Gun: {fileID: 0}
-  Prefab: {fileID: 6778590307538859870, guid: dc675c5a1e5321e4898b61b737c45a33, type: 3}
+  Prefab: {fileID: 8341478525566018886, guid: 84791318b041f854bb9c64a83fa9a429, type: 3}
   MinLife: 5
   MaxLife: 10
   MaxObjects: 30
