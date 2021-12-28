@@ -64,6 +64,12 @@ MonoBehaviour:
     ButtonParameter: 0
     Button: 0
     Disabled: 0
+    Test:
+      Type: 0
+      Vive: 0
+      Oculus: 0
+      Knuckles: 0
+      WMR: 0
     ThumbType: 1
     IndexType: 1
     MiddleType: 1
@@ -94,6 +100,8 @@ MonoBehaviour:
   IsForceGrabbable: 1
   OneHandOnly: 0
   AllowedAngleDifference: 360
+  CheckDistance: 0
+  MaxDistance: 0.3
   LeftHand: 1
   RightHand: 1
   Group: -1
@@ -127,6 +135,7 @@ GameObject:
   - component: {fileID: 2624198484135640529}
   - component: {fileID: 8049107146561653288}
   - component: {fileID: 2662767794824241676}
+  - component: {fileID: 8845672520808510394}
   m_Layer: 0
   m_Name: mjolnir
   m_TagString: Untagged
@@ -171,7 +180,6 @@ MonoBehaviour:
   OverrideGrabTrigger: 0
   GrabTrigger: 0
   RequireLineOfSight: 1
-  PhysicsPoserFallback: 1
   PoseImmediately: 0
   ParentHandModel: 1
   BreakDistance: 1
@@ -198,6 +206,7 @@ MonoBehaviour:
   StartingSocket: {fileID: 0}
   LinkStartingSocket: 0
   SocketGrabPoints: []
+  Rigidbody: {fileID: 0}
   AutoApplyLayer: 1
   RequireOverlapClearance: 0
   OverlapTimeout: 5
@@ -211,8 +220,9 @@ MonoBehaviour:
   UseColliderClosestPoint: 1
   DisableHandCollision: 0
   AllowMultiplayerSwap: 0
-  EnableInvisibleHand: 0
+  MasterGrabbable: {fileID: 0}
   CollisionDetection: 2
+  PhysicsPoserFallback: 1
   ShowBoundingBox: 0
   DrawCenterOfMass: 0
   GrabPoints:
@@ -302,6 +312,21 @@ MonoBehaviour:
   Tags:
     Tags: {fileID: 11400000, guid: 0e83bcde818c784468e6c9a69d44702f, type: 2}
     _data: 1
+--- !u!114 &8845672520808510394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862063408027050708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77dbe74f0338a6c438b0af580dd1253e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 0}
+  Force: 0
+  Grabbable: {fileID: 0}
 --- !u!1 &1722043424274926634
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +508,12 @@ MonoBehaviour:
     ButtonParameter: 0
     Button: 0
     Disabled: 0
+    Test:
+      Type: 0
+      Vive: 0
+      Oculus: 0
+      Knuckles: 0
+      WMR: 0
     ThumbType: 1
     IndexType: 1
     MiddleType: 1
@@ -513,6 +544,8 @@ MonoBehaviour:
   IsForceGrabbable: 1
   OneHandOnly: 0
   AllowedAngleDifference: 360
+  CheckDistance: 0
+  MaxDistance: 0.3
   LeftHand: 1
   RightHand: 1
   Group: -1

@@ -19,8 +19,8 @@ MonoBehaviour:
     MaxForce: 300
   SlerpDrive:
     Spring: 500
-    Damper: 40
-    MaxForce: 75
+    Damper: 50
+    MaxForce: 80
   ApplyMode: 0
   EnableCollision: 0
   EnablePreprocessing: 1

@@ -62,12 +62,6 @@ namespace HurricaneVR.Framework.Core.Grabbers
                  "unwanted center of mass and inertia tensor recalculations on grabbable objects due to hand model parenting.")]
         public bool CloneHandModel = true;
 
-        [Tooltip("Vibration strength when hovering over something you can pick up.")]
-        public float HapticsAmplitude = .1f;
-
-        [Tooltip("Vibration durection when hovering over something you can pick up.")]
-        public float HapticsDuration = .1f;
-
         [Tooltip("Ignores hand model parenting distance check.")]
         public bool IgnoreParentingDistance;
 
@@ -1043,10 +1037,8 @@ namespace HurricaneVR.Framework.Core.Grabbers
             base.OnHoverEnter(grabbable);
 
             GrabPoint = GetGrabPoint(grabbable, GrabpointFilter.Normal);
-            if (IsMine && !Mathf.Approximately(0f, HapticsDuration))
-            {
-                Controller.Vibrate(HapticsAmplitude, HapticsDuration);
-            }
+
+            OnHoverHaptics();
 
             if (grabbable.ShowGrabIndicator)
             {
@@ -1068,6 +1060,14 @@ namespace HurricaneVR.Framework.Core.Grabbers
             }
         }
 
+        protected virtual void OnHoverHaptics()
+        {
+            if (IsMine)
+            {
+                Controller.Vibrate(HVRInputManager.Instance.GrabHaptics.HandHover);
+            }
+        }
+
 
         protected override void OnHoverExit(HVRGrabbable grabbable)
         {
@@ -1081,7 +1081,6 @@ namespace HurricaneVR.Framework.Core.Grabbers
                 ResetAnimator();
             }
         }
-
         private void EnableGrabIndicator()
         {
             if (_grabIndicatorEnabled) return;
@@ -2162,6 +2161,20 @@ namespace HurricaneVR.Framework.Core.Grabbers
             if (final)
             {
                 UpdateGrabbableCOM(grabbable);
+                OnHandAttached();
+            }
+        }
+
+        protected virtual void OnHandAttached()
+        {
+            OnGrabbedHaptics();
+        }
+
+        protected virtual void OnGrabbedHaptics()
+        {
+            if (IsMine)
+            {
+                Controller.Vibrate(HVRInputManager.Instance.GrabHaptics.HandGrab);
             }
         }
 
@@ -2327,6 +2340,16 @@ namespace HurricaneVR.Framework.Core.Grabbers
             GrabToggleActive = false;
             GrabPoint = null;
             Released.Invoke(this, grabbable);
+
+            OnReleasedHaptics();
+        }
+
+        protected virtual void OnReleasedHaptics()
+        {
+            if (IsMine)
+            {
+                Controller.Vibrate(HVRInputManager.Instance.GrabHaptics.HandRelease);
+            }
         }
 
         public Vector3 GetAverageVelocity(int frames, int start)
@@ -2860,7 +2883,7 @@ namespace HurricaneVR.Framework.Core.Grabbers
             CanRelease = true;
         }
 
-       
+
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()
@@ -2910,5 +2933,7 @@ namespace HurricaneVR.Framework.Core.Grabbers
     {
         Transform, Palm, None
     }
+
+
 
 }

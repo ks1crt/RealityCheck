@@ -64,6 +64,12 @@ MonoBehaviour:
     ButtonParameter: 0
     Button: 0
     Disabled: 0
+    Test:
+      Type: 0
+      Vive: 0
+      Oculus: 0
+      Knuckles: 0
+      WMR: 0
     ThumbType: 1
     IndexType: 1
     MiddleType: 1
@@ -305,6 +311,12 @@ MonoBehaviour:
     ButtonParameter: 0
     Button: 0
     Disabled: 0
+    Test:
+      Type: 0
+      Vive: 0
+      Oculus: 0
+      Knuckles: 0
+      WMR: 0
     ThumbType: 1
     IndexType: 1
     MiddleType: 1
@@ -623,6 +635,7 @@ GameObject:
   - component: {fileID: 2552736901488274707}
   - component: {fileID: 400963548150106664}
   - component: {fileID: 2977473151056482789}
+  - component: {fileID: 8024895275550464774}
   m_Layer: 0
   m_Name: BroadSword
   m_TagString: Untagged
@@ -847,6 +860,21 @@ MonoBehaviour:
   Tags:
     Tags: {fileID: 11400000, guid: 0e83bcde818c784468e6c9a69d44702f, type: 2}
     _data: 1
+--- !u!114 &8024895275550464774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436485311293115692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77dbe74f0338a6c438b0af580dd1253e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 0}
+  Force: 0
+  Grabbable: {fileID: 0}
 --- !u!1 &5553719791403146435
 GameObject:
   m_ObjectHideFlags: 0

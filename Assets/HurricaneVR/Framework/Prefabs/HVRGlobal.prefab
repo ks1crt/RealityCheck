@@ -225,7 +225,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GrabberManager: {fileID: 0}
   PlayerController: {fileID: 0}
-  HighlightPrefab: {fileID: 0}
   Camera: {fileID: 0}
 --- !u!114 &8289038245742653683
 MonoBehaviour:
@@ -252,6 +251,7 @@ MonoBehaviour:
   TrackingSpace: 2
   FingerSettings: {fileID: 11400000, guid: 09c84620c15a89048b2784a87bec8194, type: 2}
   ControllerOffsets: {fileID: 11400000, guid: 59fc82dc1cb718745ac93844b67b3644, type: 2}
+  GrabHaptics: {fileID: 11400000, guid: 4253c613ebc69fa439e509571ef54d42, type: 2}
   WMRInputMap: {fileID: 11400000, guid: 124009afce8494b46b50a7b8e468ed5b, type: 2}
   ReverbG2InputMap: {fileID: 11400000, guid: 5b2559fbaa8c2904186757782b3c8fce, type: 2}
   OculusInputMap: {fileID: 11400000, guid: dcf21fbd7ffd7f947b782b608806c6c4, type: 2}
@@ -266,7 +266,7 @@ MonoBehaviour:
   DeadzoneOverride: {x: 0, y: 0}
   OverrideDeadzone: 0
   CurrentSDK: 4
-  XRPluginLoader: 
+  _xrPlugin: 
   LegacyActive: 0
   XRPluginActive: 0
   VRPlugin: 0

@@ -39,7 +39,7 @@ namespace HurricaneVR.Framework.Core
         [Tooltip("Does this grabbable require line of sight to the hand grabber to be grabbed?")]
         public bool RequireLineOfSight = true;
 
-    
+
 
         [FormerlySerializedAs("ParentHandModelImmediately")]
         [Tooltip("Should the hand model pose immediately to this upon grabbing.")]
@@ -235,12 +235,11 @@ namespace HurricaneVR.Framework.Core
         /// </summary>
         public List<Collider> Triggers { get; private set; } = new List<Collider>();
 
-        public CollisionDetectionMode OriginalCollisionMode { get; private set; }
+        public CollisionDetectionMode OriginalCollisionMode { get; set; }
 
-        public float Drag { get; private set; }
-        public bool WasGravity { get; private set; }
+        public bool WasGravity { get; set; }
 
-        public bool WasKinematic { get; private set; }
+        public bool WasKinematic { get; set; }
 
         public List<HVRPosableGrabPoint> GrabPointsMeta = new List<HVRPosableGrabPoint>();
 
@@ -530,7 +529,7 @@ namespace HurricaneVR.Framework.Core
             var posePosition = grabPoint.GetPoseWorldPosition(hand.HandSide);
 
             var angleDelta = Quaternion.Angle(hand.HandWorldRotation, poseRotation);
-            if (angleDelta > grabPoint.AllowedAngleDifference) 
+            if (angleDelta > grabPoint.AllowedAngleDifference)
                 return false;
 
             if (grabPoint.CheckDistance && (filter == GrabpointFilter.Normal) &&
@@ -1216,7 +1215,6 @@ namespace HurricaneVR.Framework.Core
             if (!Rigidbody)
                 return;
 
-            Drag = Rigidbody.drag;
             WasGravity = Rigidbody.useGravity;
             WasKinematic = Rigidbody.isKinematic;
             if (!_waitingForColDetectionReset)

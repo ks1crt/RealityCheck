@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 95069066520430807}
   - component: {fileID: 7403019222003421957}
   - component: {fileID: 4729505147943304335}
+  - component: {fileID: 3179216480386147684}
   m_Layer: 21
   m_Name: Physics RightHand
   m_TagString: Untagged
@@ -500,8 +501,6 @@ MonoBehaviour:
   GrabPoser: {fileID: 6415237408155413875}
   HoverPoser: {fileID: 8947092245573880026}
   CloneHandModel: 1
-  HapticsAmplitude: 0.1
-  HapticsDuration: 0.1
   IgnoreParentingDistance: 0
   IgnoreParentingAngle: 0
   ParentingMaxAngleDelta: 10
@@ -594,7 +593,7 @@ MonoBehaviour:
   OverrideMaxDepenetration: 0
   CenterOfMass: {x: 0, y: 0, z: 0}
   InertiaTensorRotation: {x: 0, y: 0, z: 0}
-  InertiaTensor: {x: 0.07, y: 0.07, z: 0.07}
+  InertiaTensor: {x: 0.02, y: 0.02, z: 0.02}
   MaxAngularVelocity: 0
   MaxDepenetration: 0
   COMGizmoSize: {x: 0.02, y: 0.02, z: 0.02}
@@ -615,6 +614,22 @@ MonoBehaviour:
   CurrentSettings: {fileID: 0}
   LogStrengthChanges: 0
   AlwaysUpdateJoint: 0
+--- !u!114 &3179216480386147684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103961327585593819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735256ec9b08e024a8efea6924dd44b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: 8f299bb66675b3a488cc1f1882ce2c92, type: 2}
+  Force: 0
+  Hand: {fileID: 0}
+  HandGrabbingPrevents: 1
 --- !u!1 &2639644430541649095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,8 +1216,6 @@ MonoBehaviour:
   GrabPoser: {fileID: 1341388972311616315}
   HoverPoser: {fileID: 7847438599518841409}
   GrabStyle: 1
-  HapticsAmplitude: 0.1
-  HapticsDuration: 0.1
   SFXGrab: {fileID: 8300000, guid: 9b66b181ff6fb214682e4d610a4105ef, type: 3}
   ForcePullSettings: {fileID: 11400000, guid: 68c393e85bc4d514bb4c3f3a5a8997d6, type: 2}
   RequiresFlick: 0
@@ -2839,18 +2852,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5440131099517166497}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2201002767781471966 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6193771317188265343, guid: f6f16e10f6dd1a54989609ba974ab624,
-    type: 3}
-  m_PrefabInstance: {fileID: 5440131099517166497}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ebbffaca5ed8a340ae381fb8a5695d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8203101588209129872 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4226767921749391921, guid: f6f16e10f6dd1a54989609ba974ab624,
@@ -2861,6 +2862,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0afd8501793f4c08903068b0bdc79809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2201002767781471966 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6193771317188265343, guid: f6f16e10f6dd1a54989609ba974ab624,
+    type: 3}
+  m_PrefabInstance: {fileID: 5440131099517166497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ebbffaca5ed8a340ae381fb8a5695d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7779853026114409171

@@ -23,11 +23,6 @@ namespace HurricaneVR.Framework.Core.Grabbers
         [Header("Settings")]
         public HVRForceGrabMode GrabStyle = HVRForceGrabMode.ForcePull;
 
-        [Tooltip("Vibration strength when hovering over something you can pick up.")]
-        public float HapticsAmplitude = .1f;
-
-        [Tooltip("Vibration duration when hovering over something you can pick up.")]
-        public float HapticsDuration = .1f;
         public AudioClip SFXGrab;
 
         [DrawIf("GrabStyle", HVRForceGrabMode.ForcePull)]
@@ -205,6 +200,14 @@ namespace HurricaneVR.Framework.Core.Grabbers
             return base.CanHover(grabbable);
         }
 
+        protected virtual void OnGrabbedHaptics()
+        {
+            if (IsMine)
+            {
+                HandGrabber.Controller.Vibrate(HVRInputManager.Instance.GrabHaptics.ForceGrab);
+            }
+        }
+
         protected override void OnGrabbed(HVRGrabArgs args)
         {
             //Debug.Log($"force grabbed!");
@@ -243,17 +246,16 @@ namespace HurricaneVR.Framework.Core.Grabbers
             args.Grabbable.Grabbed.AddListener(OnGrabbableGrabbed);
 
             if (SFXGrab)
-                if(SFXPlayer.Instance) SFXPlayer.Instance.PlaySFX(SFXGrab, transform.position);
+                if (SFXPlayer.Instance) SFXPlayer.Instance.PlaySFX(SFXGrab, transform.position);
+
+            OnGrabbedHaptics();
         }
 
         protected override void OnHoverEnter(HVRGrabbable grabbable)
         {
             base.OnHoverEnter(grabbable);
 
-            if (IsMine && !Mathf.Approximately(0f, HapticsDuration))
-            {
-                HandGrabber.Controller.Vibrate(HapticsAmplitude, HapticsDuration);
-            }
+            OnHoverHaptics();
 
             if (grabbable.ShowForceGrabIndicator)
             {
@@ -276,6 +278,14 @@ namespace HurricaneVR.Framework.Core.Grabbers
             if (HoverPoser)
             {
                 HandGrabber.SetAnimatorPose(HoverPoser);
+            }
+        }
+
+        protected virtual void OnHoverHaptics()
+        {
+            if (IsMine)
+            {
+                HandGrabber.Controller.Vibrate(HVRInputManager.Instance.GrabHaptics.ForceHover);
             }
         }
 

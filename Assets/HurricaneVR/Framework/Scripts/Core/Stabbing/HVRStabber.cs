@@ -83,7 +83,7 @@ namespace HurricaneVR.Framework.Core.Stabbing
         private Vector3 _velocity;
 
 
-        public void Start()
+        protected virtual void Awake()
         {
             Rigidbody = GetComponent<Rigidbody>();
 

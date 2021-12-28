@@ -452,6 +452,12 @@ namespace HurricaneVR.Framework.Shared
             return state;
         }
 
+        public virtual void Vibrate(HapticData haptics)
+        {
+            if(haptics.Valid)
+                Vibrate(haptics.Amplitude, haptics.Duration, haptics.Frequency);
+        }
+
         /// <summary>
         ///   <para>Sends a haptic impulse to the controller.</para>
         /// </summary>

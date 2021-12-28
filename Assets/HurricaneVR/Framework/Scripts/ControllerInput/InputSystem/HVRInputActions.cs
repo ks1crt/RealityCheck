@@ -197,6 +197,15 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Haptics"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""c2bd3cd6-8deb-46c4-95a9-93eaa08c44b3"",
+                    ""expectedControlType"": ""Haptic"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -463,6 +472,17 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""ControllerRotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e719282e-3d03-4d88-aa13-873641db842a"",
+                    ""path"": ""<XRController>{LeftHand}/haptic"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XR Usage"",
+                    ""action"": ""Haptics"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -640,6 +660,15 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Haptics"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""7648f0bd-f36f-42c0-ade0-e15b6c3c62fe"",
+                    ""expectedControlType"": ""Haptic"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -895,6 +924,17 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""ControllerRotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0a59792b-c32d-4272-9a42-d8bcc47580da"",
+                    ""path"": ""<XRController>{RightHand}/haptic"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XR Usage"",
+                    ""action"": ""Haptics"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1050,6 +1090,7 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
         m_LeftHand_TriggerTouch = m_LeftHand.FindAction("TriggerTouch", throwIfNotFound: true);
         m_LeftHand_ControllerPosition = m_LeftHand.FindAction("ControllerPosition", throwIfNotFound: true);
         m_LeftHand_ControllerRotation = m_LeftHand.FindAction("ControllerRotation", throwIfNotFound: true);
+        m_LeftHand_Haptics = m_LeftHand.FindAction("Haptics", throwIfNotFound: true);
         // RightHand
         m_RightHand = asset.FindActionMap("RightHand", throwIfNotFound: true);
         m_RightHand_TriggerPress = m_RightHand.FindAction("TriggerPress", throwIfNotFound: true);
@@ -1071,6 +1112,7 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
         m_RightHand_TriggerTouch = m_RightHand.FindAction("TriggerTouch", throwIfNotFound: true);
         m_RightHand_ControllerPosition = m_RightHand.FindAction("ControllerPosition", throwIfNotFound: true);
         m_RightHand_ControllerRotation = m_RightHand.FindAction("ControllerRotation", throwIfNotFound: true);
+        m_RightHand_Haptics = m_RightHand.FindAction("Haptics", throwIfNotFound: true);
         // HMD
         m_HMD = asset.FindActionMap("HMD", throwIfNotFound: true);
         m_HMD_hmdPosition = m_HMD.FindAction("hmdPosition", throwIfNotFound: true);
@@ -1158,6 +1200,7 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_LeftHand_TriggerTouch;
     private readonly InputAction m_LeftHand_ControllerPosition;
     private readonly InputAction m_LeftHand_ControllerRotation;
+    private readonly InputAction m_LeftHand_Haptics;
     public struct LeftHandActions
     {
         private @HVRInputActions m_Wrapper;
@@ -1181,6 +1224,7 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
         public InputAction @TriggerTouch => m_Wrapper.m_LeftHand_TriggerTouch;
         public InputAction @ControllerPosition => m_Wrapper.m_LeftHand_ControllerPosition;
         public InputAction @ControllerRotation => m_Wrapper.m_LeftHand_ControllerRotation;
+        public InputAction @Haptics => m_Wrapper.m_LeftHand_Haptics;
         public InputActionMap Get() { return m_Wrapper.m_LeftHand; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1247,6 +1291,9 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
                 @ControllerRotation.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnControllerRotation;
                 @ControllerRotation.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnControllerRotation;
                 @ControllerRotation.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnControllerRotation;
+                @Haptics.started -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnHaptics;
+                @Haptics.performed -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnHaptics;
+                @Haptics.canceled -= m_Wrapper.m_LeftHandActionsCallbackInterface.OnHaptics;
             }
             m_Wrapper.m_LeftHandActionsCallbackInterface = instance;
             if (instance != null)
@@ -1308,6 +1355,9 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
                 @ControllerRotation.started += instance.OnControllerRotation;
                 @ControllerRotation.performed += instance.OnControllerRotation;
                 @ControllerRotation.canceled += instance.OnControllerRotation;
+                @Haptics.started += instance.OnHaptics;
+                @Haptics.performed += instance.OnHaptics;
+                @Haptics.canceled += instance.OnHaptics;
             }
         }
     }
@@ -1335,6 +1385,7 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_RightHand_TriggerTouch;
     private readonly InputAction m_RightHand_ControllerPosition;
     private readonly InputAction m_RightHand_ControllerRotation;
+    private readonly InputAction m_RightHand_Haptics;
     public struct RightHandActions
     {
         private @HVRInputActions m_Wrapper;
@@ -1358,6 +1409,7 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
         public InputAction @TriggerTouch => m_Wrapper.m_RightHand_TriggerTouch;
         public InputAction @ControllerPosition => m_Wrapper.m_RightHand_ControllerPosition;
         public InputAction @ControllerRotation => m_Wrapper.m_RightHand_ControllerRotation;
+        public InputAction @Haptics => m_Wrapper.m_RightHand_Haptics;
         public InputActionMap Get() { return m_Wrapper.m_RightHand; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1424,6 +1476,9 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
                 @ControllerRotation.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnControllerRotation;
                 @ControllerRotation.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnControllerRotation;
                 @ControllerRotation.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnControllerRotation;
+                @Haptics.started -= m_Wrapper.m_RightHandActionsCallbackInterface.OnHaptics;
+                @Haptics.performed -= m_Wrapper.m_RightHandActionsCallbackInterface.OnHaptics;
+                @Haptics.canceled -= m_Wrapper.m_RightHandActionsCallbackInterface.OnHaptics;
             }
             m_Wrapper.m_RightHandActionsCallbackInterface = instance;
             if (instance != null)
@@ -1485,6 +1540,9 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
                 @ControllerRotation.started += instance.OnControllerRotation;
                 @ControllerRotation.performed += instance.OnControllerRotation;
                 @ControllerRotation.canceled += instance.OnControllerRotation;
+                @Haptics.started += instance.OnHaptics;
+                @Haptics.performed += instance.OnHaptics;
+                @Haptics.canceled += instance.OnHaptics;
             }
         }
     }
@@ -1609,6 +1667,7 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
         void OnTriggerTouch(InputAction.CallbackContext context);
         void OnControllerPosition(InputAction.CallbackContext context);
         void OnControllerRotation(InputAction.CallbackContext context);
+        void OnHaptics(InputAction.CallbackContext context);
     }
     public interface IRightHandActions
     {
@@ -1631,6 +1690,7 @@ public partial class @HVRInputActions : IInputActionCollection2, IDisposable
         void OnTriggerTouch(InputAction.CallbackContext context);
         void OnControllerPosition(InputAction.CallbackContext context);
         void OnControllerRotation(InputAction.CallbackContext context);
+        void OnHaptics(InputAction.CallbackContext context);
     }
     public interface IHMDActions
     {

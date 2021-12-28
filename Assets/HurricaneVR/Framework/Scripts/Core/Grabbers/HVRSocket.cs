@@ -374,21 +374,25 @@ namespace HurricaneVR.Framework.Core.Grabbers
             base.CheckGrab();
         }
 
+        //public bool DebugCanGrab;
+
         public override bool CanGrab(HVRGrabbable grabbable)
         {
-            if (grabbable.IsStabbing && !CanGrabStabbingGrabbable || grabbable.IsStabbed)
-                return false;
+            //if (DebugCanGrab && !GrabbedTarget)
+            //{
 
-            if (grabbable.IsBeingHeld && grabbable != GrabbedTarget && !grabbable.PrimaryGrabber.AllowSwap)
-                return false;
+            //}
 
-            if (_timeoutGrabbable && _timeoutGrabbable == grabbable)
+            if (grabbable.IsBeingHeld && grabbable != GrabbedTarget)
                 return false;
 
             return CanGrabEx(grabbable);
         }
 
-        private bool CanGrabEx(HVRGrabbable grabbable)
+        /// <summary>
+        /// Bypass the held check for GrabsFromHand
+        /// </summary>
+        protected virtual bool CanGrabEx(HVRGrabbable grabbable)
         {
             if (grabbable.IsStabbing && !CanGrabStabbingGrabbable || grabbable.IsStabbed)
                 return false;
@@ -401,8 +405,10 @@ namespace HurricaneVR.Framework.Core.Grabbers
 
             if (LinkedGrabbable && LinkedGrabbable != grabbable)
                 return false;
+
             if (grabbable.IsBeingForcedGrabbed)
                 return false;
+
             if (!IsValid(grabbable))
                 return false;
 

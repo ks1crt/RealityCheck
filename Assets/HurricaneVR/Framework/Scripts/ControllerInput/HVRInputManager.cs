@@ -5,6 +5,7 @@ using System.Linq;
 using Assets.HurricaneVR.Framework.Shared.Utilities;
 using HurricaneVR.Framework.Components;
 using HurricaneVR.Framework.Core;
+using HurricaneVR.Framework.Core.Grabbers;
 using HurricaneVR.Framework.Shared;
 using UnityEngine;
 using UnityEngine.Events;
@@ -98,6 +99,9 @@ namespace HurricaneVR.Framework.ControllerInput
 
         [Tooltip("Device / SDK controller offsets")]
         public HVRControllerOffsets ControllerOffsets;
+
+        [Tooltip("Haptics Settings")]
+        public HVRGrabHaptics GrabHaptics;
 
         [Header("Device Specific Settings")]
         public HVRInputSettings WMRInputMap;
@@ -336,6 +340,14 @@ namespace HurricaneVR.Framework.ControllerInput
 
                 FingerSettings = ScriptableObject.CreateInstance<HVRFingerSettings>();
                 FingerSettings.Reset();
+            }
+
+            if (!GrabHaptics)
+            {
+                Debug.LogWarning($"HVRInputManager.Haptics not assigned, creating defaults.");
+
+                GrabHaptics = ScriptableObject.CreateInstance<HVRGrabHaptics>();
+                GrabHaptics.Reset();
             }
 
             CheckXRStatus();
@@ -719,6 +731,7 @@ namespace HurricaneVR.Framework.ControllerInput
                     if (!controller)
                     {
                         var inputSystemController = gameObject.AddComponent<HVRInputSystemController>();
+                        inputSystemController.IsOpenXR = IsOpenXR;
                         controller = inputSystemController;
                         if (side == HVRHandSide.Left)
                         {
@@ -841,7 +854,7 @@ namespace HurricaneVR.Framework.ControllerInput
                 return;
             }
 
-            if (CurrentSDK != InputSDK.None)
+            if (CurrentSDK != InputSDK.None && !UseOVRInputs)
                 return;
 
             var isXRPlugin = VRPlugin == VRMode.XRPlugin;

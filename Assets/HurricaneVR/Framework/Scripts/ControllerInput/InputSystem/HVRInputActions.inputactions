@@ -156,6 +156,14 @@
                     "expectedControlType": "Quaternion",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Haptics",
+                    "type": "PassThrough",
+                    "id": "c2bd3cd6-8deb-46c4-95a9-93eaa08c44b3",
+                    "expectedControlType": "Haptic",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -422,6 +430,17 @@
                     "action": "ControllerRotation",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e719282e-3d03-4d88-aa13-873641db842a",
+                    "path": "<XRController>{LeftHand}/haptic",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR Usage",
+                    "action": "Haptics",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -578,6 +597,14 @@
                     "type": "Value",
                     "id": "5d32a867-da55-4d98-9417-50f370471336",
                     "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Haptics",
+                    "type": "PassThrough",
+                    "id": "7648f0bd-f36f-42c0-ade0-e15b6c3c62fe",
+                    "expectedControlType": "Haptic",
                     "processors": "",
                     "interactions": ""
                 }
@@ -833,6 +860,17 @@
                     "processors": "",
                     "groups": "XR Usage",
                     "action": "ControllerRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0a59792b-c32d-4272-9a42-d8bcc47580da",
+                    "path": "<XRController>{RightHand}/haptic",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR Usage",
+                    "action": "Haptics",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

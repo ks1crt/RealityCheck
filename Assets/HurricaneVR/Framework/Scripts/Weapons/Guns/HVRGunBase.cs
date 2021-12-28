@@ -5,6 +5,7 @@ using HurricaneVR.Framework.Components;
 using HurricaneVR.Framework.Core;
 using HurricaneVR.Framework.Core.Grabbers;
 using HurricaneVR.Framework.Core.Utils;
+using HurricaneVR.Framework.Shared;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -64,6 +65,10 @@ namespace HurricaneVR.Framework.Weapons.Guns
         [Tooltip("If true adds force on hit to everything")]
         public bool AddForceOnHit = true;
 
+        [Header("Haptics")]
+        public HVRGunHaptics Haptics;
+        public List<HVRGrabbable> HapticGrabbables = new List<HVRGrabbable>();
+
         [Header("Objects")]
 
         [Tooltip("Muzzle flash object")]
@@ -88,6 +93,7 @@ namespace HurricaneVR.Framework.Weapons.Guns
         public HVRGunEmitterBase CasingEmitter;
         public HVRCockingHandle CockingHandle;
         public HVRGunBolt Bolt;
+
 
         [Tooltip("If this grabbable is held, the StabilizedRecoilForce is used when shooting.")]
         public HVRGrabbable StabilizerGrabbable;
@@ -256,10 +262,23 @@ namespace HurricaneVR.Framework.Weapons.Guns
 
         protected virtual void Update()
         {
+            CheckTriggerHaptics();
             CheckTriggerPull();
             UpdateTrackedBullets();
             UpdateTriggerAnimation();
             UpdateShooting();
+        }
+
+        protected virtual void CheckTriggerHaptics()
+        {
+            if (Grabbable.HandGrabbers.Count == 0 || !Grabbable.HandGrabbers[0].IsMine || !Haptics) return;
+
+            var controller = Grabbable.HandGrabbers[0].Controller;
+
+            if (controller.Trigger > Haptics.TriggerSqueezeStart && controller.Trigger < Haptics.TriggerSqueezeStop)
+            {
+                PlayHaptics(Grabbable, Haptics.TriggerSqueezed);
+            }
         }
 
         public bool IsTriggerReset;// { get; set; }
@@ -310,14 +329,16 @@ namespace HurricaneVR.Framework.Weapons.Guns
         protected virtual void OnCockingHandleChambered()
         {
             TryChamberRound();
+            CockingHandleChamberedHaptics();
         }
 
         protected virtual void OnCockingHandleEjected()
         {
-            if(GunSounds)
+            if (GunSounds)
                 GunSounds.PlaySlideBack();
-            
+
             EjectBullet();
+            CockingHandleEjectHaptics();
         }
 
         protected virtual void OnCockingHandleReleased()
@@ -329,6 +350,8 @@ namespace HurricaneVR.Framework.Weapons.Guns
             {
                 Bolt.IsPushedBack = false;
             }
+
+            CockingHandleReleasedHaptics();
         }
 
         protected virtual void EnableChamberedRound()
@@ -440,6 +463,13 @@ namespace HurricaneVR.Framework.Weapons.Guns
             {
                 Grabbable.HandGrabbers[0].HandPhysics.IgnoreCollision(grabbable.Colliders, true);
             }
+
+            AmmoSocketedHaptics();
+        }
+
+        protected virtual void AmmoSocketedHaptics()
+        {
+            if (Haptics) PlayHaptics(Grabbable, Haptics.AmmoSocketed);
         }
 
         protected virtual void OnAmmoSocketReleased(HVRGrabberBase arg0, HVRGrabbable arg1)
@@ -455,6 +485,12 @@ namespace HurricaneVR.Framework.Weapons.Guns
             }
             Ammo = null;
             AmmoGrabbable = null;
+            AmmoSocketReleasedHaptics();
+        }
+
+        protected virtual void AmmoSocketReleasedHaptics()
+        {
+            if (Haptics) PlayHaptics(Grabbable, Haptics.AmmoSocketReleased);
         }
 
         public virtual void ReleaseAmmo()
@@ -514,6 +550,7 @@ namespace HurricaneVR.Framework.Weapons.Guns
             if (!CanFire())
             {
                 PlayDryFire();
+                DryFireHaptics();
                 return;
             }
 
@@ -541,6 +578,14 @@ namespace HurricaneVR.Framework.Weapons.Guns
             {
                 IsFiring = false;
             }
+
+            TriggerReleasedHaptics();
+        }
+
+        public virtual void TriggerReleasedHaptics()
+        {
+            if (!Haptics) return;
+            PlayHaptics(Grabbable, Haptics.TriggeredReleased);
         }
 
         protected virtual void PlayDryFire()
@@ -549,6 +594,12 @@ namespace HurricaneVR.Framework.Weapons.Guns
             {
                 GunSounds.PlayOutOfAmmo();
             }
+        }
+
+        protected virtual void DryFireHaptics()
+        {
+            if (!Haptics) return;
+            PlayHaptics(Grabbable, Haptics.DryFire);
         }
 
         private void UpdateTrackedBullets()
@@ -820,6 +871,52 @@ namespace HurricaneVR.Framework.Weapons.Guns
         protected virtual void OnFire(Vector3 direction)
         {
             FireBullet(direction);
+            FireHaptics();
+        }
+
+        protected virtual void FireHaptics()
+        {
+            if (!Haptics) return;
+            PlayHapticsAllHands(Haptics.Fire);
+        }
+
+        protected virtual void CockingHandleEjectHaptics()
+        {
+            if (!Haptics) return;
+            PlayHaptics(CockingHandle.Grabbable, Haptics.CockingHandleEject);
+            PlayHaptics(Grabbable, Haptics.CockingHandleEject);
+        }
+
+        protected virtual void CockingHandleReleasedHaptics()
+        {
+            if (!Haptics) return;
+            PlayHaptics(CockingHandle.Grabbable, Haptics.CockingHandleReleased);
+            PlayHaptics(Grabbable, Haptics.CockingHandleReleased);
+        }
+
+        protected virtual void CockingHandleChamberedHaptics()
+        {
+            if (!Haptics) return;
+            PlayHaptics(CockingHandle.Grabbable, Haptics.CockingHandleChamberedRound);
+            PlayHaptics(Grabbable, Haptics.CockingHandleChamberedRound);
+        }
+
+        protected virtual void PlayHapticsAllHands(HapticData haptic)
+        {
+            PlayHaptics(Grabbable, haptic);
+
+            foreach (var other in HapticGrabbables)
+            {
+                PlayHaptics(other, haptic);
+            }
+        }
+
+        protected virtual void PlayHaptics(HVRGrabbable grabbable, HapticData data)
+        {
+            if (grabbable.HandGrabbers.Count == 0 || !grabbable.HandGrabbers[0].IsMine || data == null) return;
+
+            var controller = grabbable.HandGrabbers[0].Controller;
+            controller.Vibrate(data);
         }
 
         protected virtual void FireBullet(Vector3 direction)
@@ -922,7 +1019,7 @@ namespace HurricaneVR.Framework.Weapons.Guns
             {
                 hit.collider.attachedRigidbody.AddForceAtPosition(direction.normalized * Force, hit.point, ForceMode.Impulse);
             }
-            
+
             Hit.Invoke(damageHandler);
         }
 

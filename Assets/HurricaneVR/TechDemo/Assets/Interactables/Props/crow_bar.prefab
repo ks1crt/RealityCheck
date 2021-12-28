@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 4547135930344379792}
   - component: {fileID: 3251810846684579824}
   - component: {fileID: 8557857939302712785}
+  - component: {fileID: 2449603004336045836}
   m_Layer: 0
   m_Name: crow_bar
   m_TagString: Untagged
@@ -325,6 +326,21 @@ MonoBehaviour:
   Tags:
     Tags: {fileID: 11400000, guid: 0e83bcde818c784468e6c9a69d44702f, type: 2}
     _data: 1
+--- !u!114 &2449603004336045836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2441304306611542165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77dbe74f0338a6c438b0af580dd1253e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 0}
+  Force: 0
+  Grabbable: {fileID: 0}
 --- !u!1 &2999292471114838945
 GameObject:
   m_ObjectHideFlags: 0

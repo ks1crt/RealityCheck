@@ -94,6 +94,12 @@ MonoBehaviour:
     ButtonParameter: 0
     Button: 0
     Disabled: 0
+    Test:
+      Type: 0
+      Vive: 0
+      Oculus: 0
+      Knuckles: 0
+      WMR: 0
     ThumbType: 1
     IndexType: 1
     MiddleType: 1
@@ -124,6 +130,8 @@ MonoBehaviour:
   IsForceGrabbable: 1
   OneHandOnly: 0
   AllowedAngleDifference: 360
+  CheckDistance: 0
+  MaxDistance: 0.3
   LeftHand: 1
   RightHand: 1
   Group: -1
@@ -326,6 +334,7 @@ GameObject:
   - component: {fileID: 8626967899603666844}
   - component: {fileID: 7649562002832917760}
   - component: {fileID: 3596246546424391320}
+  - component: {fileID: 33606447569671360}
   m_Layer: 0
   m_Name: dual_half_spear
   m_TagString: Untagged
@@ -390,7 +399,6 @@ MonoBehaviour:
   OverrideGrabTrigger: 0
   GrabTrigger: 0
   RequireLineOfSight: 1
-  PhysicsPoserFallback: 1
   PoseImmediately: 0
   ParentHandModel: 0
   BreakDistance: 1
@@ -414,7 +422,8 @@ MonoBehaviour:
   HandGrabbedClip: {fileID: 0}
   StartingSocket: {fileID: 0}
   LinkStartingSocket: 0
-  SocketGrabPoint: {fileID: 0}
+  SocketGrabPoints: []
+  Rigidbody: {fileID: 0}
   AutoApplyLayer: 1
   RequireOverlapClearance: 0
   OverlapTimeout: 5
@@ -428,8 +437,9 @@ MonoBehaviour:
   UseColliderClosestPoint: 1
   DisableHandCollision: 0
   AllowMultiplayerSwap: 0
-  EnableInvisibleHand: 0
+  MasterGrabbable: {fileID: 0}
   CollisionDetection: 2
+  PhysicsPoserFallback: 1
   ShowBoundingBox: 0
   DrawCenterOfMass: 0
   GrabPoints: []
@@ -495,6 +505,9 @@ MonoBehaviour:
   StabAnything: 0
   IgnoreVelocityCheck: 0
   FallbackSettings: {fileID: 0}
+  ProjectionMode: 1
+  ProjectionDistance: 0.01
+  ProjectionAngle: 20
   IsDualStabber: 1
   CanRunThrough: 1
   CollidersToIgnore:
@@ -524,10 +537,6 @@ MonoBehaviour:
   FullStabbed:
     m_PersistentCalls:
       m_Calls: []
-  MaxMass: 0
-  AnyKinematic: 0
-  connected: 0
-  scale: 10
 --- !u!114 &3596246546424391320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,13 +553,30 @@ MonoBehaviour:
   OverrideRotation: 0
   OverrideTensor: 1
   OverrideAngularSpeed: 0
+  OverrideMaxDepenetration: 0
   CenterOfMass: {x: 0, y: 0, z: 0}
   InertiaTensorRotation: {x: 0, y: 0, z: 0}
   InertiaTensor: {x: 0.057, y: 0.057, z: 0.01}
   MaxAngularVelocity: 0
+  MaxDepenetration: 0
   COMGizmoSize: {x: 0.02, y: 0.02, z: 0.02}
   LiveUpdate: 0
   Rigidbody: {fileID: 0}
+--- !u!114 &33606447569671360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211521486748594963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77dbe74f0338a6c438b0af580dd1253e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 0}
+  Force: 0
+  Grabbable: {fileID: 0}
 --- !u!1 &5340910891888478534
 GameObject:
   m_ObjectHideFlags: 0

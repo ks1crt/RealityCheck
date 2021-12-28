@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 5959223229813673566}
   - component: {fileID: 3526024020049810883}
   - component: {fileID: 1690023046285284958}
+  - component: {fileID: 6096571176510845284}
   m_Layer: 0
   m_Name: HVR_smg_magazine
   m_TagString: Untagged
@@ -368,6 +369,21 @@ MonoBehaviour:
   Tags:
     Tags: {fileID: 11400000, guid: 0e83bcde818c784468e6c9a69d44702f, type: 2}
     _data: 536870912
+--- !u!114 &6096571176510845284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4239680606358691228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77dbe74f0338a6c438b0af580dd1253e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 0}
+  Force: 0
+  Grabbable: {fileID: 0}
 --- !u!1 &4970656658018451262
 GameObject:
   m_ObjectHideFlags: 0

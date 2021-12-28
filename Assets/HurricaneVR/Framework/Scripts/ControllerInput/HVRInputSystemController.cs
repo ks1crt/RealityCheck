@@ -5,6 +5,11 @@ using System.Collections.Generic;
 using HurricaneVR.Framework.Shared;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
+
+#if USING_OPENXR
+using UnityEngine.XR.OpenXR.Input;
+#endif
 
 namespace HurricaneVR.Framework.ControllerInput
 {
@@ -12,6 +17,9 @@ namespace HurricaneVR.Framework.ControllerInput
     public class HVRInputSystemController : HVRController
     {
         public static HVRInputActions InputActions = null;
+        private InputDevice _inputDevice;
+
+        public bool IsOpenXR;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         static void Cleanup()
@@ -37,6 +45,19 @@ namespace HurricaneVR.Framework.ControllerInput
         {
             base.Start();
             Init();
+
+            UnityEngine.InputSystem.InputSystem.onDeviceChange += OnDeviceChanged;
+        }
+
+        private void OnDeviceChanged(InputDevice device, InputDeviceChange change)
+        {
+            if (change == InputDeviceChange.Added)
+            {
+                if (device.usages.Contains(CommonUsages.LeftHand) && Side == HVRHandSide.Left || device.usages.Contains(CommonUsages.RightHand) && Side == HVRHandSide.Right)
+                {
+                    _inputDevice = device;
+                }
+            }
         }
 
         protected override void UpdateInput()
@@ -117,6 +138,25 @@ namespace HurricaneVR.Framework.ControllerInput
                     val = action.ReadValue<float>() > .5f;
                 }
             }
+        }
+
+        public override void Vibrate(float amplitude, float duration = 1, float frequency = 1)
+        {
+#if USING_OPENXR
+
+            if (IsOpenXR)
+            {
+                var action = Side == HVRHandSide.Left ? InputActions.LeftHand.Haptics : InputActions.RightHand.Haptics;
+
+                if (action != null && _inputDevice != null)
+                {
+                    OpenXRInput.SendHapticImpulse(action, amplitude, frequency, duration, _inputDevice);
+                    return;
+                }
+            }
+#endif
+            base.Vibrate(amplitude, duration, frequency);
+
         }
     }
 }

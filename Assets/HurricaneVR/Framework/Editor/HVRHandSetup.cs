@@ -27,7 +27,7 @@ namespace HurricaneVR
 
         public List<FingerSetting> settings = new List<FingerSetting>();
 
-        [MenuItem("Tools/HurricaneVR/Hand Setup")]
+        [MenuItem("Tools/HurricaneVR/Custom Hand Model Helper")]
         public static void ShowWindow()
         {
             var wnd = GetWindow<HVRHandSetup>();

@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
-  - enabled: 1
+  - enabled: 0
     path: Assets/HurricaneVR/TechDemo/Scenes/scene_examples.unity
     guid: 6192b2aa20ec3814f889f74b6930bef8
+  - enabled: 1
+    path: Assets/Game Files/Scenes/Test_Guns.unity
+    guid: d0b165b14a3fd3b4b831024d3d167fc0
   m_configObjects:
     com.htc.upm.wave.xrsdk.xrsettings: {fileID: 11400000, guid: 0cc376ab289fbf747ab5de4582aa91e8, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 8d224a83986c2cc49b1f97c33ffc88ee, type: 2}

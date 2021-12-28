@@ -19,19 +19,19 @@ MonoBehaviour:
   UseTwoHandRecoilForce: 1
   ImpulseForce: 1
   RandomSideToSideRecoil: 1
-  SideToSideMin: -0.03
-  SideToSideMax: 0.03
+  SideToSideMin: -0.5
+  SideToSideMax: 0.5
   TwoHandSideToSideMin: -0.1
   TwoHandSideToSideMax: 0.1
   LimitRecoilForce: 1
-  MaxUpForce: 5
+  MaxUpForce: 10
   UseTwoHandMaxUpforce: 1
   UseTwoHandMaxSideForce: 1
   MaxBackForce: 0
   TwoHandMaxUpForce: 0
   MaxSideForce: 20
   TwoHandMaxSideForce: 0
-  RecoveryDelay: 0.1
+  RecoveryDelay: 0
   TwoHandedRecoveryDelay: 0.1
-  RecoveryTime: 0.01
+  RecoveryTime: 0
   TwoHandedRecoveryTime: 0.01

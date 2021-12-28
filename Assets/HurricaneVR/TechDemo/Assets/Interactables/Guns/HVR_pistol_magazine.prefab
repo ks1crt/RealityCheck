@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 6638804698257219620}
   - component: {fileID: 8151605209402574584}
   - component: {fileID: 6230733737688290228}
+  - component: {fileID: 5062500248179381977}
   m_Layer: 0
   m_Name: HVR_pistol_magazine
   m_TagString: Untagged
@@ -490,3 +491,18 @@ MonoBehaviour:
   Tags:
     Tags: {fileID: 11400000, guid: 0e83bcde818c784468e6c9a69d44702f, type: 2}
     _data: 1073741824
+--- !u!114 &5062500248179381977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7908477967345923796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77dbe74f0338a6c438b0af580dd1253e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 0}
+  Force: 0
+  Grabbable: {fileID: 0}
