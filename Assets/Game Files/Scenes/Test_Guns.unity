@@ -14054,6 +14054,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8409700282311199311, guid: d6042edcade85fd4abf59bf51569489c, type: 3}
+      propertyPath: Haptics
+      value: 
+      objectReference: {fileID: 11400000, guid: fb071631d7f2f714d817830329f2ff2b, type: 2}
+    - target: {fileID: 8409700282311199311, guid: d6042edcade85fd4abf59bf51569489c, type: 3}
+      propertyPath: HapticGrabbables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409700282311199311, guid: d6042edcade85fd4abf59bf51569489c, type: 3}
+      propertyPath: HapticGrabbables.Array.data[0]
+      value: 
+      objectReference: {fileID: 1831183751}
     - target: {fileID: 8409700282311199315, guid: d6042edcade85fd4abf59bf51569489c, type: 3}
       propertyPath: m_Name
       value: AK-47-Long
@@ -30669,6 +30681,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5937599519990215283, guid: 6d27760462e99c64eb1f988cbad0eaa2, type: 3}
   m_PrefabInstance: {fileID: 1815649000}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1831183751 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8409700283583859318, guid: d6042edcade85fd4abf59bf51569489c, type: 3}
+  m_PrefabInstance: {fileID: 843633766}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebc937e678155e4d86feeb9248cca97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1832364266
 GameObject:
   m_ObjectHideFlags: 0
@@ -36271,6 +36294,10 @@ PrefabInstance:
       propertyPath: Force
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 63959112658641542, guid: bcd70fdb94f28d943b9ed6d5a24487df, type: 3}
+      propertyPath: Haptics
+      value: 
+      objectReference: {fileID: 11400000, guid: fb071631d7f2f714d817830329f2ff2b, type: 2}
     - target: {fileID: 63959112658641546, guid: bcd70fdb94f28d943b9ed6d5a24487df, type: 3}
       propertyPath: m_Name
       value: Pistol_Long Magasine-1
@@ -50524,9 +50551,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7808905237467788748, guid: b0870c82f7d5b9f4bb1359e1f48fc1d0, type: 3}
+      propertyPath: Haptics
+      value: 
+      objectReference: {fileID: 11400000, guid: fb071631d7f2f714d817830329f2ff2b, type: 2}
+    - target: {fileID: 7808905237467788748, guid: b0870c82f7d5b9f4bb1359e1f48fc1d0, type: 3}
       propertyPath: FireType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7808905237467788748, guid: b0870c82f7d5b9f4bb1359e1f48fc1d0, type: 3}
+      propertyPath: HapticGrabbables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808905237467788748, guid: b0870c82f7d5b9f4bb1359e1f48fc1d0, type: 3}
+      propertyPath: HapticGrabbables.Array.data[0]
+      value: 
+      objectReference: {fileID: 7808905237177957928}
     - target: {fileID: 7808905237800127228, guid: b0870c82f7d5b9f4bb1359e1f48fc1d0, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.0825
@@ -50601,6 +50640,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0870c82f7d5b9f4bb1359e1f48fc1d0, type: 3}
+--- !u!114 &7808905237177957928 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7808905237912796073, guid: b0870c82f7d5b9f4bb1359e1f48fc1d0, type: 3}
+  m_PrefabInstance: {fileID: 7808905237177957927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebc937e678155e4d86feeb9248cca97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &7849532807835129912
 MeshFilter:
   m_ObjectHideFlags: 0

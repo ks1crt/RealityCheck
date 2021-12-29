@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: HVR_GunHaptics
   m_EditorClassIdentifier: 
   DryFire:
-    Duration: 0.04
-    Amplitude: 0.5
-    Frequency: 50
+    Duration: 0.02
+    Amplitude: 0.2
+    Frequency: 10
   Fire:
-    Duration: 0.2
+    Duration: 0.1
     Amplitude: 0.7
     Frequency: 150
   TriggeredReleased:
-    Duration: 0.025
+    Duration: 0.005
     Amplitude: 0.2
-    Frequency: 45
+    Frequency: 15
   TriggerSqueezed:
     Duration: 0.1
     Amplitude: 0.01
-    Frequency: 60
+    Frequency: 30
   CockingHandleEject:
     Duration: 0.04
     Amplitude: 0.25
