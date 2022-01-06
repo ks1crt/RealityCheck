@@ -16,7 +16,7 @@
 /[Aa]ssets/PolygonOffice
 /[Aa]ssets/PolygonSciFiCity
 /[Mm]emoryCaptures/
-
+/[Aa]ssets/BodyBuilder Asset Pack
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
 
@@ -82,3 +82,5 @@ Assets/PolygonApocalypse.meta
 Assets/PolygonOffice.meta
 
 Assets/PolygonSciFiCity.meta
+
+Assets/BodyBuilder Asset Pack.meta
