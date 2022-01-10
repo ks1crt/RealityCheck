@@ -86,6 +86,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -110,6 +111,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1555912657643060963
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,6 +424,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -446,6 +449,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2185565596561479824
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +622,7 @@ MonoBehaviour:
     Mask: 4
     Type: 2
     Speed: 16
-    AnimationParameter: 
+    AnimationParameter: None
     ButtonParameter: 1
     Button: 1
     Disabled: 0
@@ -774,8 +778,7 @@ MonoBehaviour:
   ForcePullOverride: {fileID: 0}
   JointOverride: {fileID: 0}
   OneHandJointSettings: {fileID: 0}
-  TwoHandJointSettings: {fileID: 11400000, guid: 984d36eac3c1854408dbc8f5493acd6d,
-    type: 2}
+  TwoHandJointSettings: {fileID: 11400000, guid: 984d36eac3c1854408dbc8f5493acd6d, type: 2}
   PullingSettingsOverride: {fileID: 0}
   PalmCenterOfMass: 0
   HandGrabbedClip: {fileID: 0}
@@ -935,6 +938,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -959,6 +963,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &2185565597181929535
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1130,6 +1135,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1154,6 +1160,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2185565597355653631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,6 +1231,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1248,6 +1256,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2185565597377553749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1388,6 +1397,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1412,6 +1422,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2185565597388385217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1701,6 +1712,8 @@ MonoBehaviour:
   UseAmmoProperties: 0
   NoAmmoRange: 40
   AddForceOnHit: 1
+  Haptics: {fileID: 0}
+  HapticGrabbables: []
   MuzzleFlashObject: {fileID: 0}
   MuzzleSmoke: {fileID: 0}
   ChamberedRound: {fileID: 1863332843391283941}
@@ -1722,8 +1735,7 @@ MonoBehaviour:
   FireParameter: Fire
   MaxPooledBullets: 100
   SlowMotionBulletOnly: 0
-  BulletPrefab: {fileID: 7570415639619388451, guid: 416e18e376860fc499add1ebea2501b4,
-    type: 3}
+  BulletPrefab: {fileID: 7570415639619388451, guid: 416e18e376860fc499add1ebea2501b4, type: 3}
   BulletLife: 5
   Fired:
     m_PersistentCalls:
@@ -1979,6 +1991,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2003,6 +2016,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2185565597848420672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2287,6 +2301,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2311,3 +2326,4 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
